@@ -1,0 +1,27 @@
+There are several possible solutions depending on the context:
+
+1. **Using only percentages or only fixed units:** Avoid mixing percentages and fixed units if possible.  This is often the cleanest solution.
+
+2. **Explicitly specifying container dimensions:**  If the container's width is not defined, the percentage calculation might be unreliable. Defining the container's width explicitly can sometimes resolve the issue.
+
+3. **Using a JavaScript fallback:** For complex scenarios, a JavaScript approach might be necessary to compute the value dynamically and apply it to the element's style using JavaScript's `offsetWidth` or similar properties.
+
+4. **Using a wrapper element:** Introduce a wrapper element around the target element with explicit dimensions. This would provide a predictable context for percentage calculations within the wrapper.
+
+5. **Check browser compatibility:** Ensure the browser correctly supports `calc()` with the specific units used.  Some older browsers might have limitations.
+
+Example using a wrapper:
+```css
+/* bugSolution.css */
+.container {
+  width: 500px; /* Explicitly define container width */
+}
+
+.wrapper {
+  width: calc(50% - 10px);
+}
+
+.element {
+  width: 100%;
+}
+```
